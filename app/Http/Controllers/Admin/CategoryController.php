@@ -27,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-      return view('admin.categories.create', [
+        return view('admin.categories.create', [
           'category'   => [],
           'categories' => Category::with('children')->where('parent_id', '0')->get(),
           'delimiter'  => ''
@@ -39,10 +39,10 @@ class CategoryController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
-   */
+     */
     public function store(Request $request)
     {
-      Category::create($request->all());
+        Category::create($request->all());
         return redirect()->route('admin.category.index');
     }
 
@@ -54,18 +54,17 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-      //
-  }
-
+        //
+    }
     /**
      * Show the form for editing the specified resource.
      *
-   * @param  \App\Category  $category
+     * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
     public function edit(Category $category)
     {
-      return view('admin.categories.edit', [
+        return view('admin.categories.edit', [
           'category'   => $category,
           'categories' => Category::with('children')->where('parent_id', '0')->get(),
           'delimiter'  => ''
@@ -79,12 +78,11 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-  public function update(Request $request, Category $category)
-  {
-    $category->update($request->except('slug'));
+    public function update(Request $request, Category $category)
+    {
+        $category->update($request->except('slug'));
         return redirect()->route('admin.category.index');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -93,7 +91,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-      $category->delete();
+        $category->delete();
         return redirect()->route('admin.category.index');
     }
 }
