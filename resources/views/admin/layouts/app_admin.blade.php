@@ -13,9 +13,14 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                <div class="container">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
@@ -35,7 +40,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                      <li>
+                        <li>
                           <a href="{{route('admin.index')}}">Панель состояния</a>
                         </li>
                         <li class="dropdown">
@@ -44,10 +49,16 @@
                           </a>
 
                           <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Категории</a></li>
-                              <li><a href="{{route('admin.article.index')}}">Записи блога</a></li>
+                            <li><a href="{{route('admin.category.index')}}">Категории</a></li>
+                            <li><a href="{{route('admin.article.index')}}">Записи блога</a></li>
                           </ul>
-                        <li>
+                        </li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Управление пользователями</a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{route('admin.user_management.user.index')}}">Пользователи</a></li>
+                          </ul>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -88,6 +99,5 @@
     <!-- Scripts -->
     <script src="{{ asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
-
 </body>
 </html>
