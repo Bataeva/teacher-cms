@@ -19,9 +19,9 @@
     <div id="app">
         @include('layouts.header')
         <div class="container">
-           <div class="row">
+          <div class="row">
 
-             @yield('content')
+            @yield('content')
 
           </div>
         </div>

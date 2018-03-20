@@ -12,14 +12,15 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-              {{ config('app.name', 'Laravel') }}
+                {{ config('app.name', 'Laravel') }}
             </a>
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                @include('layouts.top_menu', ['categories' => $categories])
+                @include('layouts.top_menu_categories', ['categories' => $categories])
+                @include('layouts.top_menu_pages', ['pages' => $pages])
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -30,20 +31,20 @@
                     @if (config('auth.registration'))
                       <li><a href="{{ route('register') }}">Register</a></li>
                     @endif
-              @else
-                  <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                          {{ Auth::user()->name }} <span class="caret"></span>
-                      </a>
+                @else
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
 
-                      <ul class="dropdown-menu">
-                          <li>
-                            <a href="{{ route('admin.index') }}">Admin panel</a>
-                          </li>
-                          <li>
-                              <a href="{{ route('logout') }}"
+                        <ul class="dropdown-menu">
+                            <li>
+                              <a href="{{ route('admin.index') }}">Admin panel</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                           document.getElementById('logout-form').submit();">
+                                             document.getElementById('logout-form').submit();">
                                     Logout
                                 </a>
 
